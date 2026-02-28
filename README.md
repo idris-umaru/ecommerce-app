@@ -1,3 +1,5 @@
+🛍️ E-Commerce Frontend (React + Vite)
+
 A clean, responsive e-commerce frontend built with Vite + React as a personal learning project.
 Focuses on reusable components, dynamic routing, custom hooks, and scalable folder structure.
 
