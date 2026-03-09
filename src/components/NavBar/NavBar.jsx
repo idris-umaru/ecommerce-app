@@ -46,6 +46,7 @@ const NavBar = () => {
           {/* Search */}
           <button className="icon-btn" aria-label="Search">
             <FaSearch size={18} />
+            
           </button>
 
           {/* User with dropdown */}
@@ -111,7 +112,7 @@ const NavBar = () => {
         <p className="mobile-section-label">Account</p>
         <ul className="mobile-nav-links">
           <li>
-            <NavLink to='/profile' className='mobile-nav-link' onClick={closeMobileMenu}>
+            <NavLink to='/Login' className='mobile-nav-link' onClick={closeMobileMenu}>
               <FaUser size={14} /> My Profile
             </NavLink>
           </li>
