@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useContext }from 'react'
+import { ShopContext } from '../../context/ShopContext';
 
-export const LatestCollection = () => {
+     const LatestCollection = () => {
+
+     const { Products } = useContext(ShopContext);
+    
+     console.log(Products);
+      
+  
   return (
-    <div>LatestCollection</div>
+   <div>
+    <h2>Latest Collection</h2>
+   </div>
+     
   )
 }
+
+export default LatestCollection;

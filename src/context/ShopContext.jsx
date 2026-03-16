@@ -1,12 +1,13 @@
 import { createContext } from "react";
+import { products } from "../data/Product";
 
-export const ShopContext = createContext();
+export const ShopContext = createContext(null);
 
-const ShopProvider = ({ children}) => {
-
+const ShopProvider = ({ children }) => {
   const currency = "$";
   const deliveryFee = 10;
-  const products = [];   // add your products here later
+
+  console.log("ShopProvider is rendering – products count:", products?.length || "undefined");
 
   const value = {
     currency,
