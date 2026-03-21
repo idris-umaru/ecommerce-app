@@ -8,7 +8,7 @@ const ShopProvider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState([]);
 
-  // Add to cart — increases quantity if already exists
+  
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const exists = prevItems.find(item => item._id === product._id);
