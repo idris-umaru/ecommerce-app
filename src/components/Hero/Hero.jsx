@@ -53,12 +53,12 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Right — Image */}
+      
       <div className="hero-image-wrapper">
         <div className="hero-image-bg" />
         <img src={HeroImage} alt="NovaCart hero" className="hero-image" />
 
-        {/* Floating badge */}
+        
         <div className="hero-float-badge">
           <span className="hero-float-icon">🛍️</span>
           <div>
