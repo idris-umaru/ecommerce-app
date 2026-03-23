@@ -1,10 +1,10 @@
-/* ── Section wrapper ── */
+
 .latest-collection {
   padding: 60px 6%;
   background: #fafafa;
 }
 
-/* ── Header ── */
+
 .latest-collection-header {
   margin-bottom: 2rem;
 }
@@ -21,12 +21,13 @@
   letter-spacing: 0.3px;
 }
 
-/* ── Product Grid ── */
+
 .latest-collection-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
+
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
