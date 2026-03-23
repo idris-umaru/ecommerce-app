@@ -11,7 +11,7 @@
   --hero-bg: #fafafa;
 }
 
-/* ── Hero Section ── */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -27,7 +27,8 @@
   
 }
 
-/* ── Background blobs ── */
+
+
 .hero-blob {
   position: absolute;
   border-radius: 50%;
@@ -75,7 +76,7 @@
   }
 }
 
-/* Badge */
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -93,7 +94,7 @@
   width: fit-content;
 }
 
-/* Title */
+
 .hero-title {
   font-family: "Playfair Display", serif;
   font-weight: 900;
@@ -109,7 +110,6 @@
   font-style: italic;
 }
 
-/* Description */
 .hero-description {
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
@@ -120,7 +120,6 @@
   animation: hero-fade-up 0.7s ease 0.15s both;
 }
 
-/* Buttons */
 .hero-actions {
   display: flex;
   align-items: center;
@@ -218,7 +217,6 @@
   animation: hero-fade-up 0.7s ease 0.1s both;
 }
 
-/* Soft circle behind image */
 .hero-image-bg {
   position: absolute;
   width: 88%;
