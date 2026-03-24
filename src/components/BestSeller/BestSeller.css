@@ -1,0 +1,50 @@
+
+.bestseller {
+  padding: 60px 6%;
+  background: #ffffff;
+}
+
+.bestseller-header {
+  margin-bottom: 2rem;
+}
+
+.bestseller-description {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4b5563;
+  max-width: 720px;
+  line-height: 1.7;
+  margin: 0.5rem 0 2rem 0;
+  letter-spacing: 0.3px;
+}
+
+.bestseller-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .bestseller-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bestseller {
+    padding: 40px 4%;
+  }
+
+  .bestseller-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bestseller-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
