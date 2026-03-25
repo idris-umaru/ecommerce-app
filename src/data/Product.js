@@ -123,7 +123,7 @@
     name: "Multi-iphone",
     description: "Three different color iphone",
     price: 600,
-    image: "/assets/Images/graphic-tee.jpg",
+    image: "/assets/Images/iphone-17.jpg",
     category: "unisex",
     bestseller: true,
   },
