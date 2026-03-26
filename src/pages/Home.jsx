@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext';
 import Hero from '../components/Hero/Hero';
 import LatestCollection from '../components/Collection/LatestCollection';
 import BestSeller from '../components/BestSeller/BestSeller';
+import OurPolicy from '../components/Policy/OurPolicy';
 
 const Home = () => {
   
@@ -12,6 +13,7 @@ const Home = () => {
       <Hero />
       <LatestCollection />
       <BestSeller />
+      <OurPolicy />
     </div>
   );
 };
