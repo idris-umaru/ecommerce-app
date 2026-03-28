@@ -6,9 +6,13 @@ const ShopProvider = ({ children }) => {
   const currency = "$";
   const deliveryFee = 10;
 
-  const [cartItems, setCartItems] = useState([]);
+  
+  const [search, setSearch] = useState("");
+  const [showSearch, setShowSearch] = useState(false); 
 
   
+  const [cartItems, setCartItems] = useState([]);
+
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const exists = prevItems.find(item => item._id === product._id);
@@ -27,9 +31,7 @@ const ShopProvider = ({ children }) => {
     setCartItems((prevItems) => prevItems.filter(item => item._id !== productId));
   };
 
-
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const value = {
@@ -41,6 +43,10 @@ const ShopProvider = ({ children }) => {
     removeFromCart,
     totalItems,
     totalPrice,
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch,
   };
 
   return (

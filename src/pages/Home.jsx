@@ -4,7 +4,7 @@ import Hero from '../components/Hero/Hero';
 import LatestCollection from '../components/Collection/LatestCollection';
 import BestSeller from '../components/BestSeller/BestSeller';
 import OurPolicy from '../components/Policy/OurPolicy';
-
+import NewsLetterBox from '../components/News/NewsLetterBox';
 const Home = () => {
   
 
@@ -14,6 +14,7 @@ const Home = () => {
       <LatestCollection />
       <BestSeller />
       <OurPolicy />
+      <NewsLetterBox />
     </div>
   );
 };
