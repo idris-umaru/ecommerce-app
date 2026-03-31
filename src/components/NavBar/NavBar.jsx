@@ -1,16 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import './NavBar.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import { FaShoppingCart, FaSearch, FaUser, FaBoxOpen, FaSignOutAlt } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
+import { ShopContext } from '../../context/ShopContext';
 
 const NavBar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const location = useLocation();
 
-  // Close dropdown when clicking outside
+ 
+  const { setShowSearch, totalItems } = useContext(ShopContext);
+
+ 
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -20,6 +25,10 @@ const NavBar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
@@ -40,16 +49,18 @@ const NavBar = () => {
           <li><NavLink to='/contact' className='nav-link'>Contact</NavLink></li>
         </ul>
 
-        {/* Icons */}
+        
         <div className="nav-icons">
 
-          {/* Search */}
-          <button className="icon-btn" aria-label="Search">
+         
+          <button
+            className="icon-btn"
+            aria-label="Search"
+            onClick={() => setShowSearch(true)}  
+          >
             <FaSearch size={18} />
-            
           </button>
 
-          {/* User with dropdown */}
           <div className="user-wrapper" ref={dropdownRef}>
             <button
               className="icon-btn"
@@ -78,12 +89,14 @@ const NavBar = () => {
             )}
           </div>
 
-          {/* Cart */}
+          {/* Cart with live count badge */}
           <NavLink to='/cart' className="icon-btn" aria-label="Cart">
             <FaShoppingCart size={18} />
+            {totalItems > 0 && (
+              <span className="cart-badge">{totalItems}</span>
+            )}
           </NavLink>
 
-          {/* Hamburger — mobile only */}
           <button
             className="icon-btn hamburger"
             aria-label="Menu"
@@ -97,8 +110,6 @@ const NavBar = () => {
 
       {/* Mobile Menu Drawer */}
       <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-
-        {/* Nav Links */}
         <ul className="mobile-nav-links">
           <li><NavLink to='/' className='mobile-nav-link' onClick={closeMobileMenu}>Home</NavLink></li>
           <li><NavLink to='/collection' className='mobile-nav-link' onClick={closeMobileMenu}>Collection</NavLink></li>
@@ -108,11 +119,10 @@ const NavBar = () => {
 
         <div className="mobile-divider" />
 
-        {/* Account Section */}
         <p className="mobile-section-label">Account</p>
         <ul className="mobile-nav-links">
           <li>
-            <NavLink to='/Login' className='mobile-nav-link' onClick={closeMobileMenu}>
+            <NavLink to='/profile' className='mobile-nav-link' onClick={closeMobileMenu}>
               <FaUser size={14} /> My Profile
             </NavLink>
           </li>
@@ -133,10 +143,9 @@ const NavBar = () => {
         <button className="mobile-logout">
           <FaSignOutAlt size={14} /> Logout
         </button>
-
       </div>
 
-      {/* Backdrop */}
+      
       {mobileMenuOpen && (
         <div className="mobile-backdrop" onClick={closeMobileMenu} />
       )}

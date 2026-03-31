@@ -5,15 +5,13 @@ import './Collection.css'
 import Title from '../components/Title/Title'
 import ProductItem from '../components/ProductItem/ProductItem'
 
-const categories = ['All', 'Women', 'Men', 'Unisex', 'Accessories', 'Footwear']
+const categories = ['All', 'Women', 'Men', 'Unisex', 'Accessories']
 
 const Collection = () => {
 
-  const [activeCategory, setActiveCategory] = useState('All')
-  const { search, showSearch } = useContext(ShopContext)  // ← must be inside component
-
-  // Filter by both category and search
-  const filtered = products.filter(p => {
+    const [activeCategory, setActiveCategory] = useState('All')
+    const { search, showSearch } = useContext(ShopContext)  
+    const filtered = products.filter(p => {
     const matchCategory = activeCategory === 'All' || p.category === activeCategory
     const matchSearch = p.name.toLowerCase().includes(search.toLowerCase())
     return matchCategory && matchSearch
@@ -29,7 +27,7 @@ const Collection = () => {
         </p>
       </div>
 
-      {/* Category Filter */}
+     
       <div className='collection-filters'>
         {categories.map(cat => (
           <button
@@ -46,7 +44,6 @@ const Collection = () => {
         Showing <strong>{filtered.length}</strong> products
       </p>
 
-      {/* Product Grid */}
       <div className='collection-grid'>
         {filtered.map(product => (
           <ProductItem

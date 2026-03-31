@@ -1,22 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../../context/ShopContext'
 import { FaSearch, FaTimes } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './SearchBar.css'
 
 const SearchBar = () => {
 
   const { search, setSearch, showSearch, setShowSearch } = useContext(ShopContext)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname.includes('/collection') && !showSearch) {
+      setShowSearch(true)
+    }
+    else{
+      setShowSearch(false)
+    }
+  }, [location])
 
   const handleSearch = (e) => {
     e.preventDefault()
     if (search.trim()) {
-      navigate('/collection')  // go to collection page to show results
+      navigate('/collection')  
     }
   }
 
-  if (!showSearch) return null  // hidden until search icon is clicked
+  if (!showSearch) return null 
 
   return (
     <div className='searchbar-wrapper'>

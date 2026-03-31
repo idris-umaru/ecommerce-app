@@ -1,0 +1,116 @@
+/* ── Page layout ── */
+.product-page {
+  min-height: 100vh;
+  padding: 120px 6% 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  background: #fafafa;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Not found ── */
+.product-not-found {
+  padding: 140px 6%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+/* ── Left image ── */
+.product-image-section {
+  flex: 1;
+  max-width: 500px;
+}
+
+.product-main-image {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  background: #f3f4f6;
+}
+
+/* ── Right details ── */
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-category {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin: 0;
+}
+
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.product-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #7c3aed;
+  margin: 0;
+}
+
+.product-description {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 460px;
+}
+
+/* ── Add to cart button ── */
+.product-add-btn {
+  margin-top: 8px;
+  padding: 14px 36px;
+  border-radius: 14px;
+  border: none;
+  background: #a78bfa;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-add-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+}
+
+.product-add-btn.added {
+  background: #10b981;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .product-page {
+    flex-direction: column;
+    padding: 100px 4% 60px;
+    gap: 30px;
+  }
+
+  .product-image-section {
+    max-width: 100%;
+    width: 100%;
+  }
+}

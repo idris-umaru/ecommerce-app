@@ -1,7 +1,6 @@
 import React from 'react'
 import './Hero.css'
 import { Link } from 'react-router-dom';
-import HeroImage from '../../assets/hero-image.png';
 
 const Hero = () => {
   return (
@@ -11,13 +10,13 @@ const Hero = () => {
       <div className="hero-blob hero-blob--1" />
       <div className="hero-blob hero-blob--2" />
 
-      {/* Left — Text content */}
+      {/* Full width content */}
       <div className="hero-content">
         <span className="hero-badge">✦ New Season Arrivals</span>
 
+        {/* Single line title */}
         <h1 className="hero-title">
-          Discover <br />
-          <span className="hero-title--accent">Your Style</span>
+          Discover <span className="hero-title--accent">Your Style</span>
         </h1>
 
         <p className="hero-description">
@@ -51,14 +50,8 @@ const Hero = () => {
             <span className="hero-stat-label">Rating</span>
           </div>
         </div>
-      </div>
 
-      
-      <div className="hero-image-wrapper">
-        <div className="hero-image-bg" />
-        <img src={HeroImage} alt="NovaCart hero" className="hero-image" />
-
-        
+        {/* Floating badge */}
         <div className="hero-float-badge">
           <span className="hero-float-icon">🛍️</span>
           <div>

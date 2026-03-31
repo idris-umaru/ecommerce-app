@@ -9,6 +9,8 @@ import PlaceOrder from './pages/PlaceOrder';
 import Product from './pages/Product';
 import Navbar from './components/NavBar/NavBar';
 import Contact from './pages/Contact';
+import Footer from './components/Footer/Footer';
+import SearchBar from './components/SearchBar/SearchBar';
 
 
 
@@ -17,6 +19,7 @@ const App = () => {
   return (
     <div className="app">
       <Navbar />
+      <SearchBar />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,10 +30,10 @@ const App = () => {
         <Route path="/orders" element={<Orders />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/product/:Id" element={<Product />} />
-        {/* Optional: 404 */}
+        <Route path="/product/:productId" element={<Product />} />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
+      <Footer />
     </div>
   );
 };
