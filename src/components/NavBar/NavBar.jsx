@@ -15,7 +15,6 @@ const NavBar = () => {
  
   const { setShowSearch, totalItems } = useContext(ShopContext);
 
- 
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -133,7 +132,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink to='/cart' className='mobile-nav-link' onClick={closeMobileMenu}>
-              <FaShoppingCart size={14} /> Cart
+              <FaShoppingCart size={14} /> {totalItems > 0 && <span className="mobile-cart-badge">{totalItems}</span>} Cart
             </NavLink>
           </li>
         </ul>

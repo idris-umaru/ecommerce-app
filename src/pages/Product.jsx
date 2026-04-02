@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../data/product';
+import { ShopContext } from '../context/ShopContext';
 import './Product.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = () => {
-  const { productId } = useParams();  // matches :productId in App.jsx
+  const { productId } = useParams();
+  const { addToCart, currency } = useContext(ShopContext); // ← pull addToCart from context
 
   const product = products.find(p => String(p._id) === String(productId));
 
@@ -22,7 +26,8 @@ const Product = () => {
   const { name, price, description, image, category } = product;
 
   const handleAddToCart = () => {
-    alert(`Added ${name} to cart`);
+    addToCart(product);           // ← actually adds to cart context
+    toast.success('Product added to cart!');
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
@@ -41,7 +46,7 @@ const Product = () => {
       <div className="product-details">
         <p className="product-category">{category}</p>
         <h1 className="product-name">{name}</h1>
-        <p className="product-price">${price}</p>
+        <p className="product-price">{currency}{price}</p>
         <p className="product-description">{description}</p>
 
         <button

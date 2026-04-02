@@ -6,11 +6,9 @@ const ShopProvider = ({ children }) => {
   const currency = "$";
   const deliveryFee = 10;
 
-  
   const [search, setSearch] = useState("");
-  const [showSearch, setShowSearch] = useState(false); 
+  const [showSearch, setShowSearch] = useState(false);
 
-  
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
@@ -31,7 +29,10 @@ const ShopProvider = ({ children }) => {
     setCartItems((prevItems) => prevItems.filter(item => item._id !== productId));
   };
 
+  // Total number of items in cart — use this for the cart icon badge
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+  // Total price
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const value = {
@@ -41,7 +42,7 @@ const ShopProvider = ({ children }) => {
     setCartItems,
     addToCart,
     removeFromCart,
-    totalItems,
+    totalItems,   // ← use this in your cart icon
     totalPrice,
     search,
     setSearch,

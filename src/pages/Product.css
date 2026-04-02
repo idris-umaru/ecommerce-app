@@ -1,4 +1,4 @@
-/* ── Page layout ── */
+
 .product-page {
   min-height: 100vh;
   padding: 120px 6% 80px;
@@ -9,7 +9,7 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-/* ── Not found ── */
+
 .product-not-found {
   padding: 140px 6%;
   font-family: 'DM Sans', sans-serif;
@@ -17,7 +17,6 @@
   color: #6b7280;
 }
 
-/* ── Left image ── */
 .product-image-section {
   flex: 1;
   max-width: 500px;
@@ -31,7 +30,6 @@
   background: #f3f4f6;
 }
 
-/* ── Right details ── */
 .product-details {
   flex: 1;
   display: flex;
@@ -74,7 +72,6 @@
   max-width: 460px;
 }
 
-/* ── Add to cart button ── */
 .product-add-btn {
   margin-top: 8px;
   padding: 14px 36px;
@@ -101,7 +98,6 @@
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
 }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
   .product-page {
     flex-direction: column;
