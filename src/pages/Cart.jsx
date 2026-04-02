@@ -24,7 +24,7 @@ const Cart = () => {
         <Title text1={'YOUR'} text2={'CART'} />
       </div>
 
-      {/* Cart Items */}
+      
       <div className='cart-items'>
         {cartItems.map(item => (
           <div className='cart-item' key={item._id}>
@@ -53,8 +53,6 @@ const Cart = () => {
           </div>
         ))}
       </div>
-
-      {/* Summary */}
       <div className='cart-summary'>
         <div className='cart-summary-row'>
           <span>Subtotal ({totalItems} items)</span>
