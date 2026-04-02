@@ -5,7 +5,12 @@ import './Cart.css'
 import Title from '../components/Title/Title'
 
 const Cart = () => {
-  const { cartItems, removeFromCart, totalItems, totalPrice, currency, deliveryFee } = useContext(ShopContext)
+  const { cartItems, 
+          removeFromCart,
+           totalItems,
+            totalPrice,
+             currency,
+              deliveryFee } = useContext(ShopContext)
 
   if (cartItems.length === 0) {
     return (
