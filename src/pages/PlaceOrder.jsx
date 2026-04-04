@@ -2,13 +2,17 @@ import React, { useContext, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title/Title';
 import './PlaceOrder.css';
+import CartTotal from '../components/CartTotal/CartTotal';
 
 const PlaceOrder = () => {
-  const { cartItems, totalPrice, currency, deliveryFee } = useContext(ShopContext);
+  const { cartItems,
+           totalPrice, 
+           currency,
+            deliveryFee }  = useContext(ShopContext);
 
   const [formData, setFormData] = useState({
-    Firstname: '',
-    Lastname: '',
+    FirstName: '',
+    LastName: '',
     Email: '',
     Street: '',
     City: '',
@@ -30,8 +34,8 @@ const PlaceOrder = () => {
     console.log('Order Placed:', formData, cartItems);
     alert('Your order has been placed successfully!');
     setFormData({
-      Firstname: '',
-      Lastname: '',
+      FirstName: '',
+      LastName: '',
       Email: '',
       Street: '',
       City: '',
@@ -60,19 +64,19 @@ const PlaceOrder = () => {
           <div className='form-row'>
             <input
               type='text'
-              name='Firstname'
+              name='FirstName'
               placeholder='First Name'
               className='form-input'
-              value={formData.Firstname}
+              value={formData.FirstName}
               onChange={handleChange}
               required
             />
             <input
               type='text'
-              name='Lastname'
+              name='LastName'
               placeholder='Last Name'
               className='form-input'
-              value={formData.Lastname}
+              value={formData.LastName}
               onChange={handleChange}
               required
             />
@@ -172,44 +176,10 @@ const PlaceOrder = () => {
           </button>
         </form>
 
-        {/* Right — Order Summary */}
-        <div className='order-summary'>
-          <h2 className='form-section-title'>Order Summary</h2>
-
-          <div className='order-items'>
-            {cartItems.map(item => (
-              <div className='order-item' key={item._id}>
-                <img src={item.image} alt={item.name} className='order-item-image' />
-                <div className='order-item-details'>
-                  <p className='order-item-name'>{item.name}</p>
-                  <p className='order-item-qty'>Qty: {item.quantity}</p>
-                </div>
-                <p className='order-item-price'>
-                  {currency}{(item.price * item.quantity).toFixed(2)}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className='order-summary-divider' />
-
-          <div className='order-summary-row'>
-            <span>Subtotal</span>
-            <span>{currency}{totalPrice.toFixed(2)}</span>
-          </div>
-          <div className='order-summary-row'>
-            <span>Delivery</span>
-            <span>{totalPrice >= 50 ? 'Free' : `${currency}${deliveryFee}`}</span>
-          </div>
-
-          <div className='order-summary-divider' />
-
-          <div className='order-summary-row order-summary-total'>
-            <span>Total</span>
-            <span>{currency}{orderTotal}</span>
-          </div>
+        {/* Right — Cart Total */}
+        <div>
+          <CartTotal />
         </div>
-
       </div>
     </div>
   );
