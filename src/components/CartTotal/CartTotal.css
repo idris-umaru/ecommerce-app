@@ -1,0 +1,42 @@
+/* ── Cart Total Box ── */
+.cart-total {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Title ── */
+.cart-total-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+
+/* ── Rows ── */
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ── Divider ── */
+.cart-total-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.07);
+}
+
+/* ── Total row ── */
+.cart-total-final {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a2e;
+}

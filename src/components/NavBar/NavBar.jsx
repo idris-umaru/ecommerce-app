@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import './NavBar.css'
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import { FaShoppingCart, FaSearch, FaUser, FaBoxOpen, FaSignOutAlt } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -11,8 +11,8 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
- 
   const { setShowSearch, totalItems } = useContext(ShopContext);
 
   useEffect(() => {
@@ -31,6 +31,11 @@ const NavBar = () => {
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
+  const handleLogout = () => {
+    setDropdownOpen(false);
+    navigate('/login');
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -48,18 +53,18 @@ const NavBar = () => {
           <li><NavLink to='/contact' className='nav-link'>Contact</NavLink></li>
         </ul>
 
-        
         <div className="nav-icons">
 
-         
+          {/* Search */}
           <button
             className="icon-btn"
             aria-label="Search"
-            onClick={() => setShowSearch(true)}  
+            onClick={() => setShowSearch(true)}
           >
             <FaSearch size={18} />
           </button>
 
+          {/* User dropdown */}
           <div className="user-wrapper" ref={dropdownRef}>
             <button
               className="icon-btn"
@@ -71,16 +76,18 @@ const NavBar = () => {
 
             {dropdownOpen && (
               <div className="dropdown">
-                <NavLink to='/profile' className='dropdown-item' onClick={() => setDropdownOpen(false)}>
+                {/* ← Sign In link added here */}
+                <NavLink to='/login' className='dropdown-item' onClick={() => setDropdownOpen(false)}>
                   <FaUser size={13} />
-                  My Profile
+                  Sign In
                 </NavLink>
                 <NavLink to='/orders' className='dropdown-item' onClick={() => setDropdownOpen(false)}>
                   <FaBoxOpen size={13} />
                   Orders
                 </NavLink>
                 <div className="dropdown-divider" />
-                <button className="dropdown-item dropdown-logout">
+                {/* ← Logout now navigates to /login */}
+                <button className="dropdown-item dropdown-logout" onClick={handleLogout}>
                   <FaSignOutAlt size={13} />
                   Logout
                 </button>
@@ -96,6 +103,7 @@ const NavBar = () => {
             )}
           </NavLink>
 
+          {/* Hamburger — mobile only */}
           <button
             className="icon-btn hamburger"
             aria-label="Menu"
@@ -120,9 +128,10 @@ const NavBar = () => {
 
         <p className="mobile-section-label">Account</p>
         <ul className="mobile-nav-links">
+          {/* ← Sign In link in mobile menu */}
           <li>
-            <NavLink to='/profile' className='mobile-nav-link' onClick={closeMobileMenu}>
-              <FaUser size={14} /> My Profile
+            <NavLink to='/login' className='mobile-nav-link' onClick={closeMobileMenu}>
+              <FaUser size={14} /> Sign In
             </NavLink>
           </li>
           <li>
@@ -132,19 +141,21 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink to='/cart' className='mobile-nav-link' onClick={closeMobileMenu}>
-              <FaShoppingCart size={14} /> {totalItems > 0 && <span className="mobile-cart-badge">{totalItems}</span>} Cart
+              <FaShoppingCart size={14} />
+              {totalItems > 0 && <span className="mobile-cart-badge">{totalItems}</span>}
+              Cart
             </NavLink>
           </li>
         </ul>
 
         <div className="mobile-divider" />
 
-        <button className="mobile-logout">
+        {/* ← Mobile logout also navigates to /login */}
+        <button className="mobile-logout" onClick={() => { closeMobileMenu(); navigate('/login'); }}>
           <FaSignOutAlt size={14} /> Logout
         </button>
       </div>
 
-      
       {mobileMenuOpen && (
         <div className="mobile-backdrop" onClick={closeMobileMenu} />
       )}

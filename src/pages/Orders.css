@@ -1,0 +1,235 @@
+/* ── Page ── */
+.orders-page {
+  min-height: 100vh;
+  padding: 120px 6% 80px;
+  background: #fafafa;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.orders-header {
+  margin-bottom: 2rem;
+}
+
+.orders-empty {
+  font-size: 15px;
+  color: #6b7280;
+  padding: 40px 0;
+}
+
+/* ── Orders list ── */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Order group ── */
+.order-group {
+  background: white;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.order-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #f8f7ff;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.order-group-date {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.order-group-total {
+  font-size: 14px;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* ── Order card ── */
+.order-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.order-card:last-of-type {
+  border-bottom: none;
+}
+
+/* ── Image ── */
+.order-card-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f3f4f6;
+  flex-shrink: 0;
+}
+
+/* ── Details ── */
+.order-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+
+.order-card-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.order-card-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin: 0;
+}
+
+.order-card-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.order-card-meta span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.order-card-meta strong {
+  color: #1a1a2e;
+}
+
+/* ── Right side ── */
+.order-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.order-card-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #10b981;
+  margin: 0;
+}
+
+/* ── Track button ── */
+.track-btn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1.5px solid #a78bfa;
+  background: transparent;
+  color: #7c3aed;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.track-btn:hover {
+  background: #a78bfa;
+  color: white;
+}
+
+/* ── Tracking bar ── */
+.tracking-bar {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  background: #faf9ff;
+  overflow-x: auto;
+}
+
+.tracking-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  min-width: 80px;
+}
+
+.tracking-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  border: 2px solid #e5e7eb;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.tracking-dot.active {
+  background: #a78bfa;
+  border-color: #a78bfa;
+}
+
+.tracking-line {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #e5e7eb;
+  z-index: 0;
+}
+
+.tracking-line.active {
+  background: #a78bfa;
+}
+
+.tracking-label {
+  font-size: 11px;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.tracking-label.active {
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .orders-page { padding: 100px 4% 60px; }
+  .order-card-right { align-items: flex-start; }
+  .order-group-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+}

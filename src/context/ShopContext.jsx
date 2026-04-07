@@ -10,6 +10,7 @@ const ShopProvider = ({ children }) => {
   const [showSearch, setShowSearch] = useState(false);
 
   const [cartItems, setCartItems] = useState([]);
+  const [orders, setOrders] = useState([]);   // ← stores placed orders
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
@@ -29,10 +30,22 @@ const ShopProvider = ({ children }) => {
     setCartItems((prevItems) => prevItems.filter(item => item._id !== productId));
   };
 
-  // Total number of items in cart — use this for the cart icon badge
-  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const clearCart = () => setCartItems([]);
 
-  // Total price
+  // Saves current cart as a new order then clears cart
+  const placeOrder = () => {
+    const newOrder = {
+      id: Date.now(),
+      items: [...cartItems],
+      total: totalPrice + (totalPrice >= 50 ? 0 : deliveryFee),
+      date: new Date().toLocaleDateString(),
+      status: 'Order Placed',
+    };
+    setOrders(prev => [...prev, newOrder]);
+    clearCart();
+  };
+
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const value = {
@@ -42,7 +55,10 @@ const ShopProvider = ({ children }) => {
     setCartItems,
     addToCart,
     removeFromCart,
-    totalItems,   // ← use this in your cart icon
+    clearCart,
+    placeOrder,   // ← use this instead of clearCart in PlaceOrder.jsx
+    orders,       // ← use this in Orders.jsx
+    totalItems,
     totalPrice,
     search,
     setSearch,
