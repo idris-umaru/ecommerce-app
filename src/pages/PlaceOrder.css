@@ -24,7 +24,6 @@
   margin: 0 0 16px;
 }
 
-/* ── Form ── */
 .placeorder-form {
   display: flex;
   flex-direction: column;
@@ -114,7 +113,6 @@
   box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
 }
 
-/* ── Order Summary ── */
 .order-summary {
   background: white;
   border-radius: 20px;
